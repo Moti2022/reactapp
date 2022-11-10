@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
-import SeeQuery from './components/seeQuery';
+import SeeQueries from './components/seeQueries.js';
+
 
 function App() {
   return (
     <div className="App">
-    <SeeQuery/>
+    <SeeQueries/>
     </div>
   );
 }

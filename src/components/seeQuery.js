@@ -1,21 +1,20 @@
-
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 
 
-function SeeQueries() {
-    const [query, setQueries] = useState([]);
+function SeeQuery() {
+    const [query, setQuery] = useState([]);
    
     
 
 
     useEffect( () => fetchData(), []) 
        const fetchData = () => {
-        fetch('https://moti2022.herokuapp.com/queries')
+        fetch('https://moti2022.herokuapp.com/questions')
         .then(vastaus => vastaus.json())
         .then(vastausData => {
-            setQueries(vastausData);
+            setQuery(vastausData);
             console.log(vastausData);
             
 
@@ -24,25 +23,23 @@ function SeeQueries() {
        
         
     };
-    
-    return (
-        
+
+    return(
         <div>
-          <table>
+
+<table>
             <tbody>
                 {
-                    query.map((query) => (
-                        <tr key = {query.query_id}>
-                            <td>{query.heading}</td> 
-                            <td>{query.description}</td> 
+                    query.map((question) => (
+                        <tr key = {question.question_id}>
+                            <td>{question.name}</td> 
+                          
                         </tr>
                     ))}
                 
             </tbody>
           </table>
+
         </div>
-        
     )}
-    export default SeeQueries
-        
- 
+    export default SeeQuery;
