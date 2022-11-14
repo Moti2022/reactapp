@@ -7,8 +7,8 @@ import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
 
 function SeeQueries() {
     const [queries, setQueries] = useState([]);
-   const [query, setQuery] = useState([]);
-  
+    const [query, setQuery] = useState([]);
+    
     
 
    
@@ -43,7 +43,9 @@ function SeeQueries() {
      
  };
 
-
+ const handleOnChange = () => {
+     
+ }
 
   
  
@@ -55,10 +57,15 @@ function SeeQueries() {
         <div>
           <table>
             <tbody>
+                <tr>
+                    <th>Query id</th>
+                    <th>Heading</th>
+                    <th>Description</th>
+                </tr>
                 {
                     queries.map((query) => (
                         <tr key = {query.query_id}>
-
+                             <td>{query.query_id}</td>
                             <td>{query.heading}</td> 
                             <td>{query.description} </td> 
                            <td><Link to={"/seequery/" + query.query_id}>Questions</Link></td> 

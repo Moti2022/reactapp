@@ -29,16 +29,20 @@ function SeeQuery() {
         
     };
 
-    return(
+    return (
         <div>
 
             <table>
                 <tbody>
+                    <tr>
+                        <th>Question id</th> 
+                       <th>Question</th> 
+                    </tr>
                 {
                     questions.map((question) => (
                         <tr key = {question.question_id}>
+                            <td>{question.question_id}</td> 
                             <td>{question.name}</td> 
-                          
                         </tr>
                     ))}
                 
@@ -46,5 +50,6 @@ function SeeQuery() {
           </table>
 
         </div>
-    )}
-    export default SeeQuery;
+    )
+}
+export default SeeQuery;
