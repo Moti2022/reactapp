@@ -5,19 +5,24 @@ import { useEffect } from "react";
 
 function SeeQuery() {
     const [query, setQuery] = useState([]);
-   
+    const [questions, setQuestions] = useState([]);
     
 
 
     useEffect( () => fetchData(), []) 
        const fetchData = () => {
-        fetch('https://moti2022.herokuapp.com/questions')
+        const url = window.location.href;
+        const urlList = url.split("/");
+        let id = urlList[4];
+        console.log(id);
+        fetch('https://moti2022.herokuapp.com/queries/'+id)
         .then(vastaus => vastaus.json())
         .then(vastausData => {
             setQuery(vastausData);
+            setQuestions(vastausData.questions);
             console.log(vastausData);
             
-
+            
 
         }) 
        
@@ -30,7 +35,7 @@ function SeeQuery() {
             <table>
                 <tbody>
                 {
-                    query.map((question) => (
+                    questions.map((question) => (
                         <tr key = {question.question_id}>
                             <td>{question.name}</td> 
                           

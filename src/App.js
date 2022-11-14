@@ -12,12 +12,12 @@ function App() {
             <ul>
               <li>
                 <Link to="/">Queries</Link>
-                <Link to="/seequery">Questions</Link>
+                
               </li>
             </ul>
            <Routes>
                   <Route exact path='/' element={< SeeQueries />}></Route>
-                 <Route exact path='/seequery' element={< SeeQuery />}></Route>
+                 <Route exact path='/seequery/:id' element={< SeeQuery />}></Route>
           </Routes>
           </div>
        </Router>

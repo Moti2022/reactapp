@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import SeeQuery from "./seeQuery";
-
+import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
 
 function SeeQueries() {
     const [queries, setQueries] = useState([]);
@@ -61,8 +61,8 @@ function SeeQueries() {
 
                             <td>{query.heading}</td> 
                             <td>{query.description} </td> 
-                           <td><button >Show questions</button></td> 
-
+                           <td><Link to={"/seequery/" + query.query_id}>Questions</Link></td> 
+                           
                         </tr>
                         
                     ))}
