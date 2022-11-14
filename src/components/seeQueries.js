@@ -69,8 +69,6 @@ function SeeQueries() {
                             <td>{query.heading}</td> 
                             <td>{query.description} </td> 
                            <td><button onClick={handleOnChange}>Show questions</button></td> 
-
-                            <td><button >Show questions</button></td> 
                         </tr>
                         
                     ))}
