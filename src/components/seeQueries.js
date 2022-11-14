@@ -7,8 +7,8 @@ import SeeQuery from "./seeQuery";
 
 function SeeQueries() {
     const [queries, setQueries] = useState([]);
-   const [query, setQuery] = useState([]);
-  
+    const [query, setQuery] = useState([]);
+    
     
 
    
@@ -55,14 +55,18 @@ function SeeQueries() {
         <div>
           <table>
             <tbody>
+                <tr>
+                    <th>Query id</th>
+                    <th>Heading</th>
+                    <th>Description</th>
+                </tr>
                 {
                     queries.map((query) => (
                         <tr key = {query.query_id}>
-
+                             <td>{query.query_id}</td>
                             <td>{query.heading}</td> 
                             <td>{query.description} </td> 
-                           <td><button >Show questions</button></td> 
-
+                            <td><button >Show questions</button></td> 
                         </tr>
                         
                     ))}
