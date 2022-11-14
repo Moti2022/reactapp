@@ -27,8 +27,8 @@ function SeeQuery() {
     return(
         <div>
 
-<table>
-            <tbody>
+            <table>
+                <tbody>
                 {
                     query.map((question) => (
                         <tr key = {question.question_id}>
@@ -37,7 +37,7 @@ function SeeQuery() {
                         </tr>
                     ))}
                 
-            </tbody>
+                </tbody>
           </table>
 
         </div>

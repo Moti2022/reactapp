@@ -69,7 +69,6 @@ function SeeQueries() {
                 
             </tbody>
           </table>
-        <SeeQuery/>
         </div>
         
         
