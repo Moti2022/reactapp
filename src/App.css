@@ -40,3 +40,7 @@
 .Route {
   font-size: 100px;
 }
+
+li {
+  list-style: none;
+}
