@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import SeeQuery from "./seeQuery";
+import './seeQueries.css';
 import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
 
 function SeeQueries() {
