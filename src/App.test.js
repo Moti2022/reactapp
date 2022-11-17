@@ -1,8 +1,14 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import'@testing-library/jest-dom/extend-expect';
+import SeeQuery from './components/seeQuery';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+// testi että ei tule mitään ylimääräistä
+test('renders seeQuery', () => {
+  
+  const row = [{
+     name: 'namee'}
+  ];
+  render(<SeeQuery questions={row}/>);
+  const tablecell = screen.queryByText(/namee/i);
+  expect(tablecell).not.toBeInTheDocument();
 });
