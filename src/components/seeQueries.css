@@ -9,7 +9,8 @@ td{color:black; width:200px; padding:30px;}
 
 /* Table row Header */
 td.queryHeading{font-weight: bold;}
-td.queryDesc{text-align: left; width:50%;}
+td.queryDesc {width:40%; text-align: left; padding-left: 100px;}
+.desc{text-align: left; padding-left: 100px;}
 
 /* Open Query -button on each row */
 .openQuery{

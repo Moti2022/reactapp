@@ -10,24 +10,15 @@ function SeeQueries() {
     const [queries, setQueries] = useState([]);
     const [query, setQuery] = useState([]);
     
-    
-
-   
-
     useEffect( () => fetchQueries(), []) 
        const fetchQueries = () => {
         fetch('https://moti2022.herokuapp.com/queries')
         .then(vastaus => vastaus.json())
         .then(vastausDatat => {
             setQueries(vastausDatat);
-          
-            
-
-
-        }) 
-     
-        
+        })
     };
+    
     useEffect( () => fetchData(), []) 
     const fetchData = () => {
      fetch('https://moti2022.herokuapp.com/questions')
@@ -35,26 +26,13 @@ function SeeQueries() {
      .then(vastausData => {
          setQuery(vastausData);
          console.log(vastausData);
-         
-
-
      }) 
-    
-
-     
  };
 
  const handleOnChange = () => {
      
  }
-
-  
- 
-     
- 
-    
     return (
-        
         <div>
           <table className="table">
             <tbody>
