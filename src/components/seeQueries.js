@@ -56,25 +56,23 @@ function SeeQueries() {
     return (
         
         <div>
-          <table>
+          <table className="table">
             <tbody>
-                <tr>
-                    <th>Query id</th>
-                    <th>Heading</th>
-                    <th>Description</th>
+                <tr className="header">
+                    <th>QUERY</th>
+                    <th>NAME</th>
+                    <th className="desc">DESCRIPTION</th>
                 </tr>
                 {
                     queries.map((query) => (
-                        <tr key = {query.query_id}>
-                             <td>{query.query_id}</td>
-                            <td>{query.heading}</td> 
-                            <td>{query.description} </td> 
-                           <td><Link to={"/seequery/" + query.query_id}>Questions</Link></td> 
-                           
+                        <tr key = {query.query_id} className="rows">
+                            <td>{query.query_id}</td>
+                            <td className="queryHeading">{query.heading}</td> 
+                            <td className="queryDesc">{query.description} </td> 
+                            <td><Link to={"/seequery/" + query.query_id} className="openQuery">Open Query</Link></td> 
                         </tr>
                         
                     ))}
-                
             </tbody>
           </table>
         </div>
