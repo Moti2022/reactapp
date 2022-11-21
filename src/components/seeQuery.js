@@ -1,11 +1,21 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
 
 
 function SeeQuery() {
     const [query, setQuery] = useState([]);
     const [questions, setQuestions] = useState([]);
+    const [answers, setAnswers] = useState([]);
+    useEffect( () => fetchAnswers(), []) 
+    const fetchAnswers = () => {
+     fetch('https://moti2022.herokuapp.com/answers')
+     .then(vastaus => vastaus.json())
+     .then(vastausDatat => {
+         setAnswers(vastausDatat);
+     })
+ };
     
 
 
@@ -43,6 +53,8 @@ function SeeQuery() {
                         <tr key = {question.question_id}>
                             <td>{question.question_id}</td> 
                             <td>{question.name}</td> 
+                              <td><Link to={"/seeanswer/" + question.question_id} className="seeAnswers">See Answers</Link></td> 
+                          
                         </tr>
                     ))}
                 

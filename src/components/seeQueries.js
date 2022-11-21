@@ -48,6 +48,7 @@ function SeeQueries() {
                             <td className="queryHeading">{query.heading}</td> 
                             <td className="queryDesc">{query.description} </td> 
                             <td><Link to={"/seequery/" + query.query_id} className="openQuery">Open Query</Link></td> 
+                            
                         </tr>
                         
                     ))}
