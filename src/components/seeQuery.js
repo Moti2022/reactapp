@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
-
+import './seeQuery.css';
 
 function SeeQuery() {
     const [query, setQuery] = useState([]);
