@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-
+import TextField from '@mui/material/TextField';
 
 function SeeQuery() {
     const [query, setQuery] = useState([]);
     const [questions, setQuestions] = useState([]);
+    const [answers, setAnswers] = useState([
+    ]);
     
 
 
@@ -14,19 +16,63 @@ function SeeQuery() {
         const url = window.location.href;
         const urlList = url.split("/");
         let id = urlList[4];
-        console.log(id);
+        
+        
+
         fetch('https://moti2022.herokuapp.com/queries/'+id)
         .then(vastaus => vastaus.json())
         .then(vastausData => {
             setQuery(vastausData);
             setQuestions(vastausData.questions);
-            console.log(vastausData);
             
-            
+            setAnswers([]);
+            vastausData.questions.map((question) => (
+                setAnswers((answers) => [...answers, {
+                    text: '',
+                    question:{
+                        question_id:question.question_id
+                    }
+                }]))
+                
+            )
 
         }) 
-       
         
+
+
+        
+    };
+
+    const updateState = (e, index) => {
+        const newArray = answers.map((item, i) => {
+          if (index === i) {
+            return { ...item, [e.target.name]: e.target.value };
+          } else {
+            return item;
+          }
+        });
+        setAnswers(newArray);
+      };
+
+
+      const saveAnswers = () =>{
+        answers.map((answer) => (
+            
+                fetch('https://moti2022.herokuapp.com/answers', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(answer)
+                })
+                .then(res => fetchData())
+                .catch(err => console.log(err))
+            
+            )
+            
+        )
+
+
     };
 
     return (
@@ -39,15 +85,26 @@ function SeeQuery() {
                        <th>Question</th> 
                     </tr>
                 {
-                    questions.map((question) => (
+                    questions.map((question, i) => (
                         <tr key = {question.question_id}>
                             <td>{question.question_id}</td> 
                             <td>{question.name}</td> 
+                            <TextField 
+                                autoFocus
+                                margin="dense"
+                                name="text"
+                                value={answers[i].text}
+                                onChange={e => updateState(e, i)}
+                                label="Answer"
+
+                            />
                         </tr>
+                        
                     ))}
-                
+                <input type="submit" onClick={saveAnswers}></input>
                 </tbody>
           </table>
+
 
         </div>
     )
