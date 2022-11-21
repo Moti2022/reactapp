@@ -2,12 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import TextField from '@mui/material/TextField';
+import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
+import './seeQuery.css';
 
 function SeeQuery() {
     const [query, setQuery] = useState([]);
     const [questions, setQuestions] = useState([]);
-    const [answers, setAnswers] = useState([
-    ]);
+    const [answers, setAnswers] = useState([]);
     
 
 
@@ -81,13 +82,11 @@ function SeeQuery() {
             <table>
                 <tbody>
                     <tr>
-                        <th>Question id</th> 
                        <th>Question</th> 
                     </tr>
                 {
                     questions.map((question, i) => (
                         <tr key = {question.question_id}>
-                            <td>{question.question_id}</td> 
                             <td>{question.name}</td> 
                             <TextField 
                                 autoFocus
@@ -98,6 +97,8 @@ function SeeQuery() {
                                 label="Answer"
 
                             />
+                              <td><Link to={"/seeanswer/" + question.question_id} className="seeAnswers">See Answers</Link></td> 
+                          
                         </tr>
                         
                     ))}
