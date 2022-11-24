@@ -1,11 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import './seeAnswers.css';
 
 
 function SeeAnswers ()  {
     const [answers, setAnswers] = useState([]);
-    const [question, setQuestion] = useState([]);
+    const [questions, setQuestion] = useState([]);
+   
     useEffect( () => fetchData(), []) 
        const fetchData = () => {
         const url = window.location.href;
@@ -25,22 +28,25 @@ function SeeAnswers ()  {
        
         
     };
+   
+   
 
 
 return (
 <div>
 
-<table>
+<table className="answerClass" >
                 <tbody>
-                    <tr>
-                        <th>Answer id</th> 
-                       <th>Answer</th> 
+                    <tr className="trAnswer">
+                        
+                       <th className="answerHeader">Answer</th> 
                     </tr>
                 {
                     answers.map((answer) => (
                         <tr key = {answer.answer_id}>
-                            <td>{answer.answer_id}</td> 
-                            <td>{answer.text}</td> 
+                          
+                            <td  className="answerRow">{answer.text}</td> 
+                           
                           
                         </tr>
                     ))}
