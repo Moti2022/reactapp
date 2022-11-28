@@ -12,7 +12,7 @@ function SeeAnswers ()  {
         const urlList = url.split("/");
         let id = urlList[4];
         console.log(id);
-        fetch('https://moti2022.herokuapp.com/questions/'+id)
+        fetch('http://localhost:8080/questions/'+id)
         .then(vastaus => vastaus.json())
         .then(vastausData => {
             setQuestion(vastausData);
@@ -33,13 +33,11 @@ return (
 <table>
                 <tbody>
                     <tr>
-                        <th>Answer id</th> 
                        <th>Answer</th> 
                     </tr>
                 {
                     answers.map((answer) => (
                         <tr key = {answer.answer_id}>
-                            <td>{answer.answer_id}</td> 
                             <td>{answer.text}</td> 
                           
                         </tr>
