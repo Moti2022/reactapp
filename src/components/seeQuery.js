@@ -102,7 +102,7 @@ function SeeQuery() {
                         </tr>
                         
                     ))}
-                <input type="submit" onClick={saveAnswers}></input>
+                <input id="submitAnswer" type="submit" onClick={saveAnswers}></input>
                 </tbody>
           </table>
 
