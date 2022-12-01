@@ -20,7 +20,7 @@ function SeeQuery() {
         
         
 
-        fetch('http://localhost:8080/queries/'+id)
+        fetch('http://moti22.herokuapp.com/queries/'+id)
         .then(vastaus => vastaus.json())
         .then(vastausData => {
             setQuery(vastausData);
@@ -59,7 +59,7 @@ function SeeQuery() {
       const saveAnswers = () =>{
         answers.map((answer) => (
             
-                fetch('/answers', {
+                fetch('http://moti22.herokuapp.com/answers', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

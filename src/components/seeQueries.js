@@ -12,7 +12,7 @@ function SeeQueries() {
     
     useEffect( () => fetchQueries(), []) 
        const fetchQueries = () => {
-        fetch('/queries')
+        fetch('http://moti22.herokuapp.com/queries')
         .then(vastaus => vastaus.json())
         .then(vastausDatat => {
             setQueries(vastausDatat);
@@ -21,7 +21,7 @@ function SeeQueries() {
     
     useEffect( () => fetchData(), []) 
     const fetchData = () => {
-     fetch('http://localhost:8080/questions')
+     fetch('http://moti22.herokuapp.com/questions')
      .then(vastaus => vastaus.json())
      .then(vastausData => {
          setQuery(vastausData);

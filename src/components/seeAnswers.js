@@ -15,7 +15,7 @@ function SeeAnswers ()  {
         const urlList = url.split("/");
         let id = urlList[4];
         console.log(id);
-        fetch('http://localhost:8080/questions/'+id)
+        fetch('http://moti22.herokuapp.com/questions/'+id)
         .then(vastaus => vastaus.json())
         .then(vastausData => {
             setQuestion(vastausData);
