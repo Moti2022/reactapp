@@ -54,6 +54,16 @@ function SeeQuery() {
         });
         setAnswers(newArray);
       };
+      const radioChange = (text, index) => {
+        const newArray = answers.map((item, i) => {
+          if (index === i) {
+            return { ...item, text: text };
+          } else {
+            return item;
+          }
+        });
+        setAnswers(newArray);
+      };
 
 
       const saveAnswers = () =>{
@@ -76,6 +86,45 @@ function SeeQuery() {
 
     };
 
+    const option = (question, i) => {
+        if (question.type == "text"){
+            return (
+                <TextField 
+                autoFocus
+                margin="dense"
+                name="text"
+                value={answers[i].text}
+                onChange={e => updateState(e, i)}
+                label="Answer"
+
+            />
+
+            )
+        }else if(question.type == "radio"){
+            return (
+                <label>
+                    {
+                    question.choices.map((choice) => (
+                        <label>
+                            <input type="radio" 
+                            checked={answers[i].text === choice.name}
+                            onChange={() => radioChange(choice.name, i)}
+                            />{choice.name}
+                        </label>
+                        )
+                    )
+                    }   
+                    
+                
+                
+                
+              </label>
+            )
+        }else{
+            
+        }
+    }
+
     return (
         <div>
 
@@ -88,15 +137,8 @@ function SeeQuery() {
                     questions.map((question, i) => (
                         <tr key = {question.question_id}>
                             <td>{question.name}</td> 
-                            <TextField 
-                                autoFocus
-                                margin="dense"
-                                name="text"
-                                value={answers[i].text}
-                                onChange={e => updateState(e, i)}
-                                label="Answer"
-
-                            />
+                            {option(question, i)}
+                       
                               <td><Link to={"/seeanswer/" + question.question_id} className="seeAnswers">See Answers</Link></td> 
                           
                         </tr>
