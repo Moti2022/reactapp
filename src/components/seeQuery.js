@@ -65,6 +65,26 @@ function SeeQuery() {
         setAnswers(newArray);
       };
 
+      const checkboxChange = (text, index) => {
+       // console.log(document.getElementById(index).innerText)
+       var ans ="";
+        var inputElements = document.getElementById(index);
+        for(var i=0; inputElements[i]; ++i){
+            if(inputElements[i].checked){
+                ans +=  "*" + inputElements[i].value + " ";
+                
+            }
+        }
+        const newArray = answers.map((item, i) => {
+          if (index === i) {
+            return { ...item, text: ans};
+          } else {
+            return item;
+          }
+        });
+        setAnswers(newArray);
+      };
+
 
       const saveAnswers = () =>{
         answers.map((answer) => (
@@ -115,13 +135,28 @@ function SeeQuery() {
                     )
                     }   
                     
-                
-                
-                
               </label>
             )
         }else{
-            
+            return (
+                <label>
+                    <form id={i}>
+                    {
+                        
+                    question.choices.map((choice) => (
+                        <label>
+                            <input type="checkbox" 
+                            value={choice.name}
+                            onChange={() => checkboxChange( choice.name, i)}
+                            />{choice.name}
+                        </label>
+                        )
+                    )
+                    
+                    }   
+                    </form>
+              </label>
+            )
         }
     }
 
