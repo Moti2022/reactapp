@@ -113,6 +113,7 @@ function SeeQuery() {
                 autoFocus
                 margin="dense"
                 name="text"
+            
                 value={answers[i].text}
                 onChange={e => updateState(e, i)}
                 label="Answer"
@@ -122,7 +123,7 @@ function SeeQuery() {
             )
         }else if(question.type == "radio"){
             return (
-                <label>
+                <label><br/>
                     {
                     question.choices.map((choice) => (
                         <label>
@@ -139,7 +140,7 @@ function SeeQuery() {
             )
         }else{
             return (
-                <label>
+                <label><br/>
                     <form id={i}>
                     {
                         
